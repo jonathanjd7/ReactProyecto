@@ -1,58 +1,13 @@
-
-# Usa la imagen base de Node.js
-
-FROM node:16
-
- 
-
-# Establece el directorio de trabajo
-
-WORKDIR /app
-
- 
-
-# Copia el package.json y el package-lock.json
-
-COPY package*.json ./
-
- 
-
-# Instala las dependencias
-
-RUN npm install
-
- 
-
-# Copia el resto de la aplicación
-
-COPY . .
-
- 
-
-# Construye la aplicación para producción
-
-RUN npm run build
-
- 
-
-# Usa la imagen base de Nginx para servir la aplicación
-
-FROM nginx:alpine
-
- 
-
-# Copia los archivos de construcción al directorio de Nginx
-
-COPY --from=0 /app/build /usr/share/nginx/html
-
- 
-
-# Exponer el puerto 80
-
-EXPOSE 80
-
- 
-
-# Comando para ejecutar Nginx
-
-CMD ["nginx", "-g", "daemon off;"]
+<!doctype html>
+<html lang="en">
+ <head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/>
+  <link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/>
+  <title>React App</title><script defer="defer" src="/static/js/main.be8b5664.js"></script>
+  <link href="/static/css/main.f855e6bc.css" rel="stylesheet"></head>
+ <body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+   <div id="root"></div>
+  </body>
+</html>
